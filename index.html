@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f8f7f2;
+            --accent-color: #ede2d9;
+            --text-color: #555d50;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--text-color);
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .category {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .project {
+            border: 1px solid var(--accent-color);
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: var(--accent-color);
+        }
+
+        .project img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .project h3 {
+            margin: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .project p {
+            margin: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Portfolio</h1>
+        <p>Showcasing my projects across various genres.</p>
+    </header>
+
+    <nav>
+        <a href="#web-development">Web Development</a>
+        <a href="#photography">Photography</a>
+        <a href="#3d-modeling">3D Modeling</a>
+    </nav>
+
+    <section id="web-development" class="category">
+        <h2>Web Development</h2>
+        <div class="project">
+            <img src="project1-thumbnail.jpg" alt="Project 1">
+            <h3>Project 1</h3>
+            <p>Short description of the project.</p>
+        </div>
+        <div class="project">
+            <img src="project2-thumbnail.jpg" alt="Project 2">
+            <h3>Project 2</h3>
+            <p>Short description of the project.</p>
+        </div>
+    </section>
+
+    <section id="photography" class="category">
+        <h2>Photography</h2>
+        <div class="project">
+            <img src="photo1-thumbnail.jpg" alt="Photo 1">
+            <h3>Photo 1</h3>
+            <p>Short description of the photo.</p>
+        </div>
+    </section>
+
+    <section id="3d-modeling" class="category">
+        <h2>3D Modeling</h2>
+        <div class="project">
+            <img src="model1-thumbnail.jpg" alt="3D Model 1">
+            <h3>3D Model 1</h3>
+            <p>Short description of the model.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
