@@ -7,12 +7,12 @@
     <style>
         :root {
             --bg-color: #f8f7f2;
-            --primary-color: #4a90e2;
-            --secondary-color: #50e3c2;
-            --text-color: #333;
-            --card-bg: #fff;
-            --shadow-color: rgba(0, 0, 0, 0.1);
+            --accent-color: #ede2d9;
+            --text-color: #555d50;
+            --primary-color: #6c757d;
             --hover-color: #ffba08;
+            --secondary-color: #ff6f61; /* Subtle addition for variety */
+            --scroll-color: #c3a89e;
         }
 
         * {
@@ -29,120 +29,127 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
             color: #fff;
+            padding: 3rem 1rem;
             text-align: center;
-            padding: 4rem 1rem;
         }
 
         header h1 {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            font-weight: bold;
         }
 
         header p {
+            margin-top: 1rem;
             font-size: 1.2rem;
         }
 
         nav {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
-            color: var(--primary-color);
+            color: #fff;
             text-decoration: none;
-            font-weight: bold;
+            font-size: 1rem;
+            margin: 0 1rem;
             padding: 0.5rem 1rem;
-            border: 2px solid var(--primary-color);
-            border-radius: 50px;
-            transition: background-color 0.3s, color 0.3s;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
         }
 
         nav a:hover {
-            background-color: var(--primary-color);
-            color: #fff;
+            background-color: var(--hover-color);
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
 
         section {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         section h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary-color);
             margin-bottom: 2rem;
         }
 
         .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
+            justify-content: center;
         }
 
         .project {
-            background-color: var(--card-bg);
+            background-color: #fff;
+            border: 2px solid var(--accent-color);
             border-radius: 10px;
-            box-shadow: 0 4px 10px var(--shadow-color);
             overflow: hidden;
+            width: calc(33.333% - 2rem);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
         .project img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto;
         }
 
         .project-content {
             padding: 1rem;
+            text-align: center;
         }
 
         .project h3 {
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
             color: var(--primary-color);
+            margin-bottom: 0.5rem;
         }
 
         .project p {
-            font-size: 1rem;
             color: var(--text-color);
-        }
-
-        .project:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: #fff;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 4rem;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            nav a {
-                font-size: 1rem;
-                padding: 0.4rem 0.8rem;
+            .project {
+                width: calc(50% - 2rem);
             }
+        }
+
+        @media (max-width: 480px) {
+            .project {
+                width: 100%;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Your Modern Portfolio</h1>
-        <p>Showcasing innovative projects with a sleek and modern design.</p>
+        <h1>Your Portfolio</h1>
+        <p>Showcasing Your Projects in a Sleek Design</p>
     </header>
 
     <nav>
@@ -152,51 +159,65 @@
     </nav>
 
     <div class="container">
-        <section id="web-development">
-            <h2>Web Development</h2>
-            <div class="projects">
-                <div class="project">
-                    <img src="project1-thumbnail.jpg" alt="Responsive Website">
-                    <div class="project-content">
-                        <h3>Responsive Website</h3>
-                        <p>Building adaptable and visually appealing web designs.</p>
-                    </div>
-                </div>
-                <div class="project">
-                    <img src="project2-thumbnail.jpg" alt="E-commerce Platform">
-                    <div class="project-content">
-                        <h3>E-commerce Platform</h3>
-                        <p>Designing seamless online shopping experiences.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="photography">
-            <h2>Photography</h2>
-            <div class="projects">
-                <div class="project">
-                    <img src="photo1-thumbnail.jpg" alt="Nature's Beauty">
-                    <div class="project-content">
-                        <h3>Nature's Beauty</h3>
-                        <p>Capturing serene landscapes and natural wonders.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="3d-modeling">
-            <h2>3D Modeling</h2>
-            <div class="projects">
-                <div class="project">
-                    <img src="model1-thumbnail.jpg" alt="Architectural Design">
-                    <div class="project-content">
-                        <h3>Architectural Design</h3>
-                        <p>Creating modern and detailed architectural renders.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div id="categories"></div>
     </div>
+
+    <script>
+        // Fetch categories from JSON
+        async function loadPortfolio() {
+            try {
+                const categoriesResponse = await fetch('categories.json');
+                const categories = await categoriesResponse.json();
+
+                const categoriesContainer = document.getElementById('categories');
+
+                for (const category of categories) {
+                    const section = document.createElement('section');
+                    section.id = category.id;
+
+                    const heading = document.createElement('h2');
+                    heading.textContent = category.name;
+                    section.appendChild(heading);
+
+                    const projectsDiv = document.createElement('div');
+                    projectsDiv.className = 'projects';
+
+                    const projectsResponse = await fetch(`${category.folder}/projects.json`);
+                    const projects = await projectsResponse.json();
+
+                    for (const project of projects) {
+                        const projectDiv = document.createElement('div');
+                        projectDiv.className = 'project';
+
+                        const projectImg = document.createElement('img');
+                        projectImg.src = project.image;
+                        projectImg.alt = project.title;
+                        projectDiv.appendChild(projectImg);
+
+                        const projectContent = document.createElement('div');
+                        projectContent.className = 'project-content';
+
+                        const projectTitle = document.createElement('h3');
+                        projectTitle.textContent = project.title;
+                        projectContent.appendChild(projectTitle);
+
+                        const projectDescription = document.createElement('p');
+                        projectDescription.textContent = project.description;
+                        projectContent.appendChild(projectDescription);
+
+                        projectDiv.appendChild(projectContent);
+                        projectsDiv.appendChild(projectDiv);
+                    }
+
+                    section.appendChild(projectsDiv);
+                    categoriesContainer.appendChild(section);
+                }
+            } catch (error) {
+                console.error('Error loading portfolio:', error);
+            }
+        }
+
+        loadPortfolio();
+    </script>
 </body>
 </html>
