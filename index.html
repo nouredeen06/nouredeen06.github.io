@@ -7,9 +7,11 @@
     <style>
         :root {
             --bg-color: #f8f7f2;
-            --accent-color: #ede2d9;
-            --text-color: #555d50;
-            --primary-color: #6c757d;
+            --primary-color: #4a90e2;
+            --secondary-color: #50e3c2;
+            --text-color: #333;
+            --card-bg: #fff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
             --hover-color: #ffba08;
         }
 
@@ -23,52 +25,51 @@
             font-family: 'Arial', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
+            line-height: 1.6;
         }
 
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: #fff;
-            padding: 3rem 1rem;
             text-align: center;
+            padding: 4rem 1rem;
         }
 
         header h1 {
             font-size: 3rem;
-            font-weight: 700;
             margin-bottom: 1rem;
         }
 
         header p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
         }
 
         nav {
-            margin-top: 2rem;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
         }
 
         nav a {
             color: var(--primary-color);
             text-decoration: none;
-            font-size: 1.1rem;
             font-weight: bold;
-            margin: 0 1rem;
             padding: 0.5rem 1rem;
             border: 2px solid var(--primary-color);
             border-radius: 50px;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         nav a:hover {
-            background-color: var(--hover-color);
+            background-color: var(--primary-color);
             color: #fff;
-            border-color: var(--hover-color);
         }
 
         .container {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 0 auto;
+            padding: 1rem;
         }
 
         section {
@@ -77,32 +78,29 @@
 
         section h2 {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 2rem;
         }
 
         .projects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .project {
-            background-color: #fff;
+            background-color: var(--card-bg);
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px var(--shadow-color);
             overflow: hidden;
-            flex: 1 1 calc(33.333% - 2rem);
-            display: flex;
-            flex-direction: column;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project img {
             width: 100%;
-            height: auto;
+            height: 200px;
+            object-fit: cover;
         }
 
         .project-content {
@@ -133,25 +131,10 @@
             margin-top: 4rem;
         }
 
-        footer p {
-            font-size: 1rem;
-        }
-
         @media (max-width: 768px) {
-            .project {
-                flex: 1 1 calc(50% - 1rem);
-            }
-
             nav a {
                 font-size: 1rem;
-                margin: 0 0.5rem;
                 padding: 0.4rem 0.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .project {
-                flex: 1 1 100%;
             }
         }
     </style>
@@ -162,76 +145,58 @@
         <p>Showcasing innovative projects with a sleek and modern design.</p>
     </header>
 
-    <nav id="nav"></nav>
+    <nav>
+        <a href="#web-development">Web Development</a>
+        <a href="#photography">Photography</a>
+        <a href="#3d-modeling">3D Modeling</a>
+    </nav>
 
-    <div class="container" id="content"></div>
+    <div class="container">
+        <section id="web-development">
+            <h2>Web Development</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="project1-thumbnail.jpg" alt="Responsive Website">
+                    <div class="project-content">
+                        <h3>Responsive Website</h3>
+                        <p>Building adaptable and visually appealing web designs.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="project2-thumbnail.jpg" alt="E-commerce Platform">
+                    <div class="project-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>Designing seamless online shopping experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2025 Your Name. All Rights Reserved.</p>
-    </footer>
+        <section id="photography">
+            <h2>Photography</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="photo1-thumbnail.jpg" alt="Nature's Beauty">
+                    <div class="project-content">
+                        <h3>Nature's Beauty</h3>
+                        <p>Capturing serene landscapes and natural wonders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        async function loadPortfolio() {
-            const nav = document.getElementById('nav');
-            const content = document.getElementById('content');
-
-            // Load categories
-            const categoriesResponse = await fetch('categories.json');
-            const categories = await categoriesResponse.json();
-
-            categories.forEach(category => {
-                // Add category link to navigation
-                const link = document.createElement('a');
-                link.href = `#${category.id}`;
-                link.textContent = category.name;
-                nav.appendChild(link);
-
-                // Create section for category
-                const section = document.createElement('section');
-                section.id = category.id;
-
-                const title = document.createElement('h2');
-                title.textContent = category.name;
-                section.appendChild(title);
-
-                const projectsContainer = document.createElement('div');
-                projectsContainer.classList.add('projects');
-                section.appendChild(projectsContainer);
-
-                content.appendChild(section);
-
-                // Load projects for the category
-                fetch(`${category.id}/projects.json`)
-                    .then(response => response.json())
-                    .then(projects => {
-                        projects.forEach(project => {
-                            const projectDiv = document.createElement('div');
-                            projectDiv.classList.add('project');
-
-                            const img = document.createElement('img');
-                            img.src = `${category.id}/${project.image}`;
-                            img.alt = project.title;
-
-                            const projectContent = document.createElement('div');
-                            projectContent.classList.add('project-content');
-
-                            const projectTitle = document.createElement('h3');
-                            projectTitle.textContent = project.title;
-
-                            const projectDescription = document.createElement('p');
-                            projectDescription.textContent = project.description;
-
-                            projectContent.appendChild(projectTitle);
-                            projectContent.appendChild(projectDescription);
-                            projectDiv.appendChild(img);
-                            projectDiv.appendChild(projectContent);
-                            projectsContainer.appendChild(projectDiv);
-                        });
-                    });
-            });
-        }
-
-        loadPortfolio();
-    </script>
+        <section id="3d-modeling">
+            <h2>3D Modeling</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="model1-thumbnail.jpg" alt="Architectural Design">
+                    <div class="project-content">
+                        <h3>Architectural Design</h3>
+                        <p>Creating modern and detailed architectural renders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
