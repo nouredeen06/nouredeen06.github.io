@@ -107,6 +107,15 @@ section h2 {
     width: 100%;
     height: auto;
 }
+.project video {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
 
 .project-content {
     padding: 1rem;
@@ -189,11 +198,16 @@ html {
                 const projectDiv = document.createElement('div');
                 projectDiv.className = 'project';
 
-                if (project.video) {
+                // Check if the project has an image or video and render accordingly
+                if (project.image) {
+                    const projectImg = document.createElement('img');
+                    projectImg.src = `${category.folder}/${project.image}`;
+                    projectImg.alt = project.title;
+                    projectDiv.appendChild(projectImg);
+                } else if (project.video) {
                     const projectVideo = document.createElement('video');
                     projectVideo.src = `${category.folder}/${project.video}`;
-                    projectVideo.controls = true; // Adds play/pause controls
-                    projectVideo.width = 320; // Adjust as needed
+                    projectVideo.controls = true;
                     projectDiv.appendChild(projectVideo);
                 }
 
@@ -221,6 +235,7 @@ html {
 }
 
 loadPortfolio();
+
 </script>
 </body>
 </html>
