@@ -3,5 +3,10 @@
         "title": "Sunset",
         "description": "A beautiful sunset captured on a summer evening.",
         "image": "photography/sunset.jpg"
-    }
+    },
+{
+"title": "Photographer",
+"description": "a picture of a photographer",
+"image": "photography/photo.jpg"
+}
 ]
