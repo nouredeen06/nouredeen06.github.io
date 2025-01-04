@@ -157,67 +157,70 @@ html {
     <script>
         // Fetch categories and projects from JSON
         async function loadPortfolio() {
-            try {
-                const categoriesResponse = await fetch('categories.json');
-                const categories = await categoriesResponse.json();
+    try {
+        const categoriesResponse = await fetch('categories.json');
+        const categories = await categoriesResponse.json();
 
-                const nav = document.getElementById('navigation');
-                const categoriesContainer = document.getElementById('categories');
+        const nav = document.getElementById('navigation');
+        const categoriesContainer = document.getElementById('categories');
 
-                for (const category of categories) {
-                    // Create navigation link
-                    const navLink = document.createElement('a');
-                    navLink.href = `#${category.id}`;
-                    navLink.textContent = category.name;
-                    nav.appendChild(navLink);
+        for (const category of categories) {
+            // Create navigation link
+            const navLink = document.createElement('a');
+            navLink.href = `#${category.id}`;
+            navLink.textContent = category.name;
+            nav.appendChild(navLink);
 
-                    // Create section for category
-                    const section = document.createElement('section');
-                    section.id = category.id;
+            // Create section for category
+            const section = document.createElement('section');
+            section.id = category.id;
 
-                    const heading = document.createElement('h2');
-                    heading.textContent = category.name;
-                    section.appendChild(heading);
+            const heading = document.createElement('h2');
+            heading.textContent = category.name;
+            section.appendChild(heading);
 
-                    const projectsDiv = document.createElement('div');
-                    projectsDiv.className = 'projects';
+            const projectsDiv = document.createElement('div');
+            projectsDiv.className = 'projects';
 
-                    const projectsResponse = await fetch(`${category.folder}/projects.json`);
-                    const projects = await projectsResponse.json();
+            const projectsResponse = await fetch(`${category.folder}/projects.json`);
+            const projects = await projectsResponse.json();
 
-                    for (const project of projects) {
-                        const projectDiv = document.createElement('div');
-                        projectDiv.className = 'project';
+            for (const project of projects) {
+                const projectDiv = document.createElement('div');
+                projectDiv.className = 'project';
 
-                        const projectImg = document.createElement('img');
-                        projectImg.src = project.image;
-                        projectImg.alt = project.title;
-                        projectDiv.appendChild(projectImg);
-
-                        const projectContent = document.createElement('div');
-                        projectContent.className = 'project-content';
-
-                        const projectTitle = document.createElement('h3');
-                        projectTitle.textContent = project.title;
-                        projectContent.appendChild(projectTitle);
-
-                        const projectDescription = document.createElement('p');
-                        projectDescription.textContent = project.description;
-                        projectContent.appendChild(projectDescription);
-
-                        projectDiv.appendChild(projectContent);
-                        projectsDiv.appendChild(projectDiv);
-                    }
-
-                    section.appendChild(projectsDiv);
-                    categoriesContainer.appendChild(section);
+                if (project.video) {
+                    const projectVideo = document.createElement('video');
+                    projectVideo.src = `${category.folder}/${project.video}`;
+                    projectVideo.controls = true; // Adds play/pause controls
+                    projectVideo.width = 320; // Adjust as needed
+                    projectDiv.appendChild(projectVideo);
                 }
-            } catch (error) {
-                console.error('Error loading portfolio:', error);
-            }
-        }
 
-        loadPortfolio();
-    </script>
+                const projectContent = document.createElement('div');
+                projectContent.className = 'project-content';
+
+                const projectTitle = document.createElement('h3');
+                projectTitle.textContent = project.title;
+                projectContent.appendChild(projectTitle);
+
+                const projectDescription = document.createElement('p');
+                projectDescription.textContent = project.description;
+                projectContent.appendChild(projectDescription);
+
+                projectDiv.appendChild(projectContent);
+                projectsDiv.appendChild(projectDiv);
+            }
+
+            section.appendChild(projectsDiv);
+            categoriesContainer.appendChild(section);
+        }
+    } catch (error) {
+        console.error('Error loading portfolio:', error);
+    }
+}
+
+loadPortfolio();
+</script>
 </body>
 </html>
