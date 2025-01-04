@@ -1,3 +1,7 @@
 [
-    { "id": "photography", "name": "Photography" }
+    {
+        "id": "photopgraphy",
+        "name": "photopgraphy",
+        "folder": "photopgraphy"
+    }
 ]
