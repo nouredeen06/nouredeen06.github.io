@@ -3,5 +3,10 @@
         "id": "photography",
         "name": "Photography",
         "folder": "photography"
+    },
+    {
+        "id": "videoediting",
+        "name": "Video Editing",
+        "folder": "Videos"
     }
 ]
