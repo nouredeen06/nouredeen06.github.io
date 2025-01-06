@@ -89,12 +89,13 @@ section h2 {
 }
 
 .projects.vertical .project {
-    flex: 0 0 100%; /* Each project takes full width for vertical layout */
-    max-width: 400px; /* Optional: Limit max width */
+    flex: 0 0 100%; /* Each vertical project takes full width */
+    max-width: 400px; /* Optional: Limit max width for vertical videos */
 }
 
 .projects.horizontal .project {
-    flex: 0 0 calc(33.333% - 2rem); /* Adjust for horizontal layout */
+    flex: 0 0 100%; /* Horizontal videos take up full width */
+    max-width: 100%; /* Ensure they span the entire category width */
 }
 
 .project {
@@ -108,8 +109,24 @@ section h2 {
 
 .project img,
 .project video {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ensure images and videos fill their containers */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.project-content {
+    padding: 1rem;
+    text-align: center;
+}
+
+.project h3 {
+    font-size: 1.5rem;
+    color: var(--hover-color);
+    margin-bottom: 0.5rem;
+}
+
+.project p {
+    color: var(--text-color-dark);
+    font-size: 0.9rem;
 }
 
 .project:hover {
@@ -166,7 +183,7 @@ html {
 
     <script>
         // Fetch categories and projects from JSON
-        async function loadPortfolio() {
+      async function loadPortfolio() {
     try {
         const categoriesResponse = await fetch('categories.json');
         const categories = await categoriesResponse.json();
