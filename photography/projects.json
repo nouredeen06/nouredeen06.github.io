@@ -8,5 +8,10 @@
 "title": "Photographer",
 "description": "a picture of a photographer",
 "image": "photo.jpg"
-}
+},
+ {
+        "title": "test",
+        "description": "A beautiful sunset captured on a summer evening.",
+        "video": "video1.mp4"
+    }
 ]

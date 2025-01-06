@@ -2,11 +2,13 @@
     {
         "id": "photography",
         "name": "Photography",
-        "folder": "photography"
+        "folder": "photography",
+	"layout": "vertical"
     },
     {
         "id": "videoediting",
         "name": "Video Editing",
-        "folder": "videos"
+        "folder": "videos",
+	"layout": "horizontal"
     }
 ]

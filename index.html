@@ -88,32 +88,33 @@ section h2 {
     justify-content: center;
 }
 
+.projects.vertical .project {
+    flex: 0 0 100%; /* Each project takes full width for vertical layout */
+    max-width: 400px; /* Optional: Limit max width */
+}
+
+.projects.horizontal .project {
+    flex: 0 0 calc(33.333% - 2rem); /* Adjust for horizontal layout */
+}
+
 .project {
-    background-color: var(--bg-color-dark);
-    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    border: 2px solid var(--primary-color);
     border-radius: 10px;
     overflow: hidden;
-    width: calc(33.333% - 2rem);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project img,
+.project video {
+    width: 100%;
+    height: auto;
 }
 
 .project:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.project img {
-    width: 100%;
-    height: auto;
-}
-.project video {
-    width: 100%;
-    height: auto;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
 }
 
 
@@ -189,7 +190,7 @@ html {
             section.appendChild(heading);
 
             const projectsDiv = document.createElement('div');
-            projectsDiv.className = 'projects';
+            projectsDiv.className = `projects ${category.layout || ''}`;
 
             const projectsResponse = await fetch(`${category.folder}/projects.json`);
             const projects = await projectsResponse.json();
@@ -198,13 +199,14 @@ html {
                 const projectDiv = document.createElement('div');
                 projectDiv.className = 'project';
 
-                // Check if the project has an image or video and render accordingly
                 if (project.image) {
                     const projectImg = document.createElement('img');
                     projectImg.src = `${category.folder}/${project.image}`;
                     projectImg.alt = project.title;
                     projectDiv.appendChild(projectImg);
-                } else if (project.video) {
+                }
+
+                if (project.video) {
                     const projectVideo = document.createElement('video');
                     projectVideo.src = `${category.folder}/${project.video}`;
                     projectVideo.controls = true;
