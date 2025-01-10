@@ -1,8 +1,8 @@
 [
     {
-        "id": "videoediting",
-        "name": "Video Editing",
-        "folder": "videos",
-	"layout": "horizontal"
+        "id": "shortform",
+        "name": "Short Form Videos",
+        "folder": "ShortForm",
+	"layout": "vertical"
     }
 ]
