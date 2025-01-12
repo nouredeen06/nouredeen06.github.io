@@ -3,5 +3,15 @@
         "title": "New Year countdown",
 		"description": "Inspirational video counting down for the new year 2025",
 		"video": "thny.mp4"
-    }
+    },
+	{
+        "title": "Turkish Speakeasy",
+		"description": "Educational video teaching a bunch of phrases/sentences in turkish",
+		"video": "turkish speakeasy.mp4"
+    },
+	{
+        "title": "German Speakeasy",
+		"description": "Educational video teaching a bunch of phrases/sentences in german",
+		"video": "german speakeasy.mp4"
+    }	
 ]
