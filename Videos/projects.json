@@ -1,22 +1,22 @@
 [
     {
         "title": "New Year countdown",
-		"description": "Inspirational video counting down for the new year 2025",
+		"description": "Inspirational video counting down for the new year 2025 1/1/2025",
 		"video": "thny.mp4"
     },
 	{
         "title": "Turkish Speakeasy",
-		"description": "Educational video teaching a bunch of phrases/sentences in turkish",
+		"description": "Educational video teaching a bunch of phrases/sentences in turkish 11/10/2024",
 		"video": "turkish speakeasy.mp4"
     },
 	{
         "title": "German Speakeasy",
-		"description": "Educational video teaching a bunch of phrases/sentences in german",
+		"description": "Educational video teaching a bunch of phrases/sentences in german 31/10/2024",
 		"video": "german speakeasy.mp4"
     },
 	{
 		"title": "Stupid Translator",
-		"description": "A humorous sketch highlighting what happens when a translator is bad at his job",
+		"description": "A humorous sketch highlighting what happens when a translator is bad at his job 12/1/2025",
 		"video": "idiot translator.mp4"
 	}
 ]
