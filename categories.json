@@ -3,6 +3,12 @@
         "id": "shortform",
         "name": "Short Form Videos",
         "folder": "ShortForm",
-	"layout": "vertical"
-    }
+		"layout": "vertical"
+    },
+	{
+		"id": "videos",
+		"name": "Horizontal Videos",
+		"folder": "Videos",
+		"layout": "horizontal"
+	}
 ]
