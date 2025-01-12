@@ -13,5 +13,10 @@
         "title": "German Speakeasy",
 		"description": "Educational video teaching a bunch of phrases/sentences in german",
 		"video": "german speakeasy.mp4"
-    }	
+    },
+	{
+		"title": "Stupid Translator",
+		"description": "A humorous sketch highlighting what happens when a translator is bad at his job",
+		"video": "idiot translator.mp4"
+	}
 ]
