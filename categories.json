@@ -10,5 +10,11 @@
 		"name": "Horizontal Videos",
 		"folder": "Videos",
 		"layout": "horizontal"
+	},
+	{
+		"id": "gaming",
+		"name": "Gaming Videos",
+		"folder": "gaming",
+		"layout": "horizontal"
 	}
 ]
