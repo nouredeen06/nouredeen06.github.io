@@ -6,12 +6,6 @@
 		"layout": "vertical"
     },
 	{
-		"id": "videos",
-		"name": "Horizontal Videos",
-		"folder": "Videos",
-		"layout": "horizontal"
-	},
-	{
 		"id": "gaming",
 		"name": "Gaming Videos",
 		"folder": "gaming",
